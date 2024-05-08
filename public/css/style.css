@@ -1,0 +1,90 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-block {
+    margin-top: 30px;
+    width: 80%;
+    height: 85vh;
+    border-radius: 15px;
+    background-image: url(https://sun9-20.userapi.com/impg/ewyeUvIkJU19QKTyg6BIzgPwyh0b45S6uSTDhg/jvoYn9QhD9I.jpg?size=1320x677&quality=96&sign=b58896f5a3a4b6981594c2451ccc1d4a&type=album);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+
+}
+
+.first-text {
+    margin-top: 120px;
+}
+
+.first-text h1 {
+    color: white;
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 64px;
+    width: 60%;
+}
+
+.first-text h3 {
+    color: white;
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    width: 35%;
+}
+
+.search-block {
+    display: flex;
+    position: absolute;
+    
+    background-color: white;
+    border-radius: 55px;
+    padding: 25px;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .5);
+}
+
+.search-item {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    width: 150px;
+}
+
+.cars-container {
+    margin-top: 150px;
+    width: 80%;
+}
+
+.car-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.car-box {
+    width: 423px;
+    height: 545px;
+    padding: 25px;
+    box-shadow: 5px 17px 9px 0px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.cars-all {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+

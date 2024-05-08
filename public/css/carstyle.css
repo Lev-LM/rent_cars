@@ -1,0 +1,49 @@
+.section-cars {
+    margin-left: 5%;
+    margin-top: 100px;
+
+}
+.section-cars h1 {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    width: 20%;
+}
+
+.car-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+    align-items: center;
+}
+
+.car-left {
+    min-width: 50%;
+}
+
+.car-info {
+    border: 1px solid black;
+    width: 60%;
+    display: flex;
+    gap: 2%;
+    padding: 1%;
+}
+
+.block-information {
+    display: flex;
+    gap: 5%;
+}
+
+.left-information {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 40%;
+}
+
+.item-information {
+    display: flex;
+    align-items: center;
+    gap: 10%;
+}

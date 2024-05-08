@@ -1,0 +1,211 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.top-block {
+    margin-top: 50px;
+}
+.steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.steps li {
+    position: relative;
+    text-align: center;
+}
+
+.steps a {
+    color: #000;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 80%;
+}
+
+.step-item span {
+    width: 60px;
+    display: block;
+    position: relative;
+    height: 60px;
+    font-size: 1.5em;
+    line-height: 2.5;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 2;
+    margin: auto;
+}
+
+.step-line {
+    width: 100%;
+    height: 1px;
+    top: 30%;
+    border-bottom: 1px dashed #ccc;
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+}
+
+.step-item span>span, .step-item.active span>span {
+    position: absolute;
+    font-size: .6em;
+    background-color: transparent;
+    top: 70px;
+    left: 0;
+    color: #000;
+    line-height: 1.2;
+    border: none;
+    height: auto;
+    width: 200px;
+    text-align: left;
+}
+
+.step-item.active span {
+    width: 60px;
+    display: block;
+    height: 60px;
+    font-size: 1.5em;
+    line-height: 2.5;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #1f42e0;
+    border: 1px solid #1f42e0;
+}
+
+.rent-detals {
+    margin-top: 100px;
+    display: flex;
+    width: 100%;
+    display: flex;
+    gap: 3%;
+}
+
+.left-block {
+    width: 25%;
+    background-color: rgb(236, 236, 231);
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 800px;
+}
+
+
+
+.left-items h6{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.left-items ul {
+    list-style: none;
+    font-size: .9em;
+    padding: 0;
+    margin: 0;
+    padding: 4%;
+}
+
+.left-items li {
+    border-bottom: 1px dashed #ddd;
+    padding: 20px 0 5px 0;
+}
+
+.left-items span{
+    color: #7b7b7b;
+    display: block;
+    margin-bottom: 7px;
+}
+
+.left-items p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.right-block {
+
+    width: 1000px;
+}
+
+.car-filter {
+    display: flex;
+    width: 100%;
+
+}
+
+.filter {
+    border: 1px solid #cacaca;
+    padding: 1%;
+    width: 100%;
+}
+
+.form-control {
+    outline: none;
+    border: none;
+}
+
+.cars-list {
+    margin-top: 50px;
+}
+
+.car-item {
+    display: flex;
+    border: 1px solid #cacaca;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-left {
+    display: flex;
+    gap: 25px;
+    width: 75%;
+    padding: 15px;
+}
+
+.car-information {
+
+    width: 250px;
+}
+
+.car-elements {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.item-elements {
+    display: flex;
+    gap: 10%;
+
+}
+
+.car-right {
+    background-color: rgb(236, 236, 231);
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    height: 300px;
+    gap: 20px;
+}
+
+.btn-car {
+    border: 2px solid #e30613 !important;
+}
+.btn {
+    margin-top: 10px;
+    width: 100px;
+    font-weight: 400;
+    background-color: #e01f27;
+    color: #fff;
+    font-size: .7em;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
