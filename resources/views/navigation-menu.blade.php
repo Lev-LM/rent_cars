@@ -6,12 +6,12 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" style="font-size: 20px">
-                        {{ __('CarVenture') }}
+                        {{ __('ARLuxe') }}
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" style="display: flex; margin-left:100%">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" style="display: flex; margin-left:90%">
                     <x-nav-link href="/" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
@@ -85,6 +85,11 @@
 
                 <!-- Settings Dropdown -->
                 @if (Auth::check())
+                    @foreach (Config::get('languages') as $lang => $language)
+                        @if ($lang != App::getLocale())
+                            <a href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                        @endif
+                    @endforeach
                     <div class="ms-3 relative">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">

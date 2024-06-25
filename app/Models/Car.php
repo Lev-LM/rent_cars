@@ -9,7 +9,9 @@ class Car extends Model
 {
     use HasFactory;
 
-
+    protected $fillable = [
+        'cost_per_day',
+    ];
 
     public function type()
     {

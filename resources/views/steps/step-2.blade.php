@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     <li class="col-lg-3 pb-5">
-                        <div class="step-item active">
+                        <div class="step-item">
                       <span>
                         <p>2</p>
                         <span>Выбор <br>автомобиля</span>
@@ -42,11 +42,7 @@
                     </li>
                 </ul>
         </div>
-
-        @livewire('filter-auto', ['typeId' => $typeId, 'data_in' => $data_in, 'data_out' => $data_out]);
-
-
-
+        @livewire('filter-auto', ['typeId' => $typeId, 'data_in' => $data_in, 'data_out' => $data_out, 'daysDifference' => $daysDifference])
 
     </div>
     </x-app-layout>

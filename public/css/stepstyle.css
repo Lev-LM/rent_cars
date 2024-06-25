@@ -91,7 +91,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-height: 800px;
+    max-height: 850px;
 }
 
 
@@ -114,6 +114,12 @@
 .left-items li {
     border-bottom: 1px dashed #ddd;
     padding: 20px 0 5px 0;
+}
+
+.auto-model li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .left-items span{
@@ -168,7 +174,6 @@
 }
 
 .car-information {
-
     width: 250px;
 }
 
@@ -177,7 +182,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-
 }
 
 .item-elements {
@@ -197,15 +201,115 @@
 }
 
 .btn-car {
-    border: 2px solid #e30613 !important;
+    border: 2px solid #4806e3 !important;
+    width: 100px;
+}
+.btn-register {
+    border: 2px solid #4806e3 !important;
+    width: 200px;
+    max-height: 35px;
+    border-radius: 20px;
+    background-color: #4806e3;
+    padding: 5px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.btn-login {
+    width: 200px;
+    margin-top: 10px;
+    font-weight: 400;
+    color: black;
+}
+.btn-user {
+    border: 2px solid #4806e3 !important;
+    width: 200px;
+    margin-left: 80%;
 }
 .btn {
     margin-top: 10px;
-    width: 100px;
     font-weight: 400;
-    background-color: #e01f27;
+    background-color: #4806e3;
     color: #fff;
     font-size: .7em;
     border-radius: 20px;
     text-transform: uppercase;
+}
+
+.container-login {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container-register {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 7%;
+}
+
+.container-login ul {
+    display: flex;
+    gap: 10%;
+}
+.container-register ul {
+    display: flex;
+    gap: 10%;
+}
+
+.container-login li {
+    display: flex;
+    flex-direction: column;
+}
+.container-register li {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-input {
+    border-radius: 10px;
+}
+
+.container-login small {
+    margin-top: 10px;
+}
+
+.user-container {
+    
+    background-color: rgb(236, 236, 231);
+    width: 60%;
+    margin-left: 10%;
+}
+
+.user-container h6{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.4;
+    font-weight: 600;
+    padding: 5%;
+}
+
+.user-container ul {
+    list-style: none;
+    font-size: .9em;
+    padding: 0;
+    margin: 0;
+    padding: 4%;
+}
+
+.user-container li {
+    border-bottom: 1px dashed #ddd;
+    padding: 20px 0 5px 0;
+}
+
+.user-container span{
+    color: #7b7b7b;
+    display: block;
+    margin-bottom: 7px;
+}
+
+.user-container p {
+    margin-top: 0;
+    margin-bottom: 1rem;
 }

@@ -5,14 +5,18 @@ section {
     align-items: center;
 }
 
+.section1 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-image: url(https://sun9-20.userapi.com/impg/ewyeUvIkJU19QKTyg6BIzgPwyh0b45S6uSTDhg/jvoYn9QhD9I.jpg?size=1320x677&quality=96&sign=b58896f5a3a4b6981594c2451ccc1d4a&type=album);
+}
+
 .first-block {
     margin-top: 30px;
     width: 80%;
-    height: 85vh;
+    height: 60vh;
     border-radius: 15px;
-    background-image: url(https://sun9-20.userapi.com/impg/ewyeUvIkJU19QKTyg6BIzgPwyh0b45S6uSTDhg/jvoYn9QhD9I.jpg?size=1320x677&quality=96&sign=b58896f5a3a4b6981594c2451ccc1d4a&type=album);
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     justify-content: center;
 
@@ -42,12 +46,11 @@ section {
 
 .search-block {
     display: flex;
-    position: absolute;
-    
     background-color: white;
-    border-radius: 55px;
+    border-radius: 15px;
     padding: 25px;
     box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .5);
+
 }
 
 .search-item {
@@ -79,6 +82,8 @@ section {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    justify-content: center;
+    align-items: center;
 }
 
 .cars-all {
@@ -86,5 +91,3 @@ section {
     justify-content: center;
     margin-top: 50px;
 }
-
-

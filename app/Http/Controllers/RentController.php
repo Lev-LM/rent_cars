@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Rent;
 use App\Models\Car;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RentController extends Controller
 {
@@ -27,23 +29,31 @@ class RentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+    public function brone(Request $request)
+    {
+        $user = Auth()->user();
+        $userId = $user->id;
+        $receivedData = $request->input('carId');
+        dd($receivedData);
+    }
     public function store(Request $request)
     {
         $typeId = $request->input('type');
 
         $data_in = $request->input('data-start');
         $data_out = $request->input('data-out');
-        // dd($data_in);
-        // dd($input, $datain, $dataout);
+        $receivedDate = Carbon::parse($data_in);
+        $returnedDate = Carbon::parse($data_out);
+        $daysDifference = $returnedDate->diffInDays($receivedDate);
+
         // $rent = new Rent();
         // $rent->receiving = $data_in;
         // $rent->return_date = $data_out;
-        // $rent->user_id = 1;
+        // $user = Auth()->user();
+        // $rent->user_id = $user->id;
         // $rent->car_id = 1;
         // $rent->price = 1222;
-        // $receivedDate = Carbon::parse($data_in);
-        // $returnedDate = Carbon::parse($data_out);
-        // $daysDifference = $returnedDate->diffInDays($receivedDate);
         // $rent->days = $daysDifference;
 
         // $rentalPricePerDay = 1200; // Цена за день аренды
@@ -57,7 +67,7 @@ class RentController extends Controller
         $cars = Car::where('type_id', $typeId)->where('status', 'free')->get();
 
         // dd($cars);
-        return view('steps.step-2', compact('cars', 'data_in', 'data_out', 'typeId'));
+        return view('steps.step-2', compact('cars', 'data_in', 'data_out', 'typeId', 'daysDifference'));
     }
 
     /**

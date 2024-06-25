@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [HomeController::class, 'index']);
 
 
 Route::middleware([
@@ -29,8 +31,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
-// Route::post('/cars/store', [CarController::class, 'store'])->name('cars.store');
 Route::post('/rent/store', [RentController::class, 'store'])->name('rent.store');
+Route::get('/rent/brone', [RentController::class, 'brone'])->name('rent.brone');
 
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);

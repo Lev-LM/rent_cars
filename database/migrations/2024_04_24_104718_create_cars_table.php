@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('places');
             $table->string('transmission');
             $table->string('status')->default('In progress');
+            $table->integer('popular')->default('0');
             $table->string('image')->nullable();
 
             $table->timestamps();

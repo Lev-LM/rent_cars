@@ -22,20 +22,118 @@
                 </li>
             </ul>
         </div>
-        <div class="left-items">
+        <div class="left-items auto-model">
             <h6>Выбранное авто:</h6>
+            @if($selectedCar)
             <ul>
                 <li>
-                    @if($selectedCar)
-                    <h2>{{ $selectedCar->brand }}</h2>
+                    <h4>{{ $selectedCar->brand }} {{ $selectedCar->model }}</h4>
                     <image width="600" height="600" src="{{ asset('/storage/images/products/'.$selectedCar->image) }}"></image>
                     <!-- Отобразите другие свойства выбранного автомобиля здесь -->
-                @endif
                 </li>
             </ul>
+            <ul>
+                <li>
+                    <p>Аренда авто: {{$selectedCar->cost_per_day * $daysDifference}} руб.</p>
+                </li>
+            </ul>
+            @endif
         </div>
     </div>
 
+    @if ($userData)
+        @if (!Auth::check())
+            @if ($userRegisterStatus)
+                @if (!$isRegisteredUser)
+                <div class="container-register">
+                    <h3>Заполните данные</h3>
+                    <form wire:submit.prevent="creatingUser">
+                        <ul>
+                            <li>
+                                <label for="name">Name:</label>
+                                <input type="text" wire:model.defer="name" placeholder="Имя" />
+                            </li>
+                            <li>
+                                <label for="tentacles">Number:</label>
+                                <input type="number" wire:model.defer="number" placeholder="Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required  wire:model.defer="number"/>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <label for="email">Enter your email:</label>
+                                <input type="email" wire:model.defer="email" placeholder="Email" />
+                            </li>
+                            <li>
+                                <label for="pass">Password:</label>
+                                <input type="password" wire:model.defer="password" placeholder="Password" />
+                            </li>
+                        </ul>
+
+
+                        <button class="btn-register" type="submit">Зарегистрироваться</button>
+                    </form>
+                    <button class="btn-login" wire:click="userRegister()">Уже есть аккаунт</button>
+                </div>
+                @endif
+            @else
+                <div class="container-login">
+                <h3>Для продолжения бронирования вам нужно авторизоваться</h3>
+                <form wire:submit.prevent="login">
+                    <ul>
+                        <li>
+                            <label for="email">Enter your email:</label>
+                            <input class="login-input" type="email" wire:model="email" placeholder="Email">
+                        </li>
+                        <li>
+                            <label for="pass">Password:</label>
+                            <input class="login-input" type="password" wire:model="password" placeholder="Пароль">
+                        </li>
+                    </ul>
+                    <button class="btn-register" type="submit">Войти</button>
+                </form>
+                <small>Нету аккаунта?</small>
+                <button class="btn-register" wire:click="userRegister()">Зарегистрироваться</button>
+                </div>
+            @endif
+        @else
+            @auth
+                <div class="user-container">
+                    <h6>Дополнительная информация</h6>
+                    <ul>
+                        <li>
+                            <span>Имя клиента</span>
+                            <p>{{ Auth::user()->name }}</p>
+                        </li>
+                        <li>
+                            <span>Почта клиента</span>
+                            <p>{{ Auth::user()->email }}</p>
+                        </li>
+                        <li>
+                            <span>Номер телефона</span>
+                            <p>{{ Auth::user()->number }}</p>
+                        </li>
+                        <li>
+                            <span>Дней аренды</span>
+                            <p>{{ $daysDifference }}</p>
+                        </li>
+                    </ul>
+                        @if ($rentStatus == false)
+                        <button type="submit" class="btn btn-success ms-1" wire:click="rentSave">Забронировать</button>
+                        @else
+                        <p>Ваша заявка принята!</p>
+                        <span><a href="/">Вернуться на главную</a></span>
+                        @endif
+
+                </div>
+                {{-- Добро пожаловать, {{ Auth::user()->name }}!
+                Ваш email: {{ Auth::user()->email }}
+                <!-- Другие данные пользователя --> --}}
+            @endauth
+
+        @endif
+
+
+    @else
     <div class="right-block">
         <div class="car-parameters">
             <h3>PARAMETERS CARS</h3>
@@ -98,15 +196,21 @@
                         <h3>{{$car->cost_per_day}} Руб.</h3>
                         <p>цена в сутки</p>
                     </span>
-                    <span>16800 руб.
+                    <span>{{$car->cost_per_day * $daysDifference}} руб.
                     за все время</span>
 
-                    <button class="btn btn-car" wire:click="selectCar({{ $car->id }})">Выбрать</button>
+                    <button name="carId" class="btn btn-car" wire:click="selectCar({{ $car->id }})">Выбрать</button>
                 </div>
             </div>
             @endforeach
-
         </div>
     </div>
+    @endif
     </div>
+    @if (!$userData)
+        @if($selectedCar)
+            <button class="btn btn-user" wire:click="confirmation()">Подтвердить</button>
+        @endif
+    @endif
+
 </div>
